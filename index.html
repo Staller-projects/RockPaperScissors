@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script> 
+    <title>Rock Paper Scissors</title>
+</head>
+<body class="bg-slate-900">
+
+    <h1 class="text-3xl text-slate-100 text-center py-20">This is RockPaperScissors!</h1>
+
+
+    <div class="choiceButtonGroup w-fit bg-sky-600/20 backdrop-blur-sm  container d-flex justify-center mx-auto p-5 rounded-xl shadow-slate-100/50">
+        <div class="my-3 border-b-[1px] border-slate-200">
+            <p class="text-slate-100"> Please select your choice!</p>
+            <button class=" bg-sky-500 text-lg py-2 px-5 rounded m-3" onclick="getPlayerChoice(this)">Rock</button>
+            <button class=" bg-sky-500 text-lg py-2 px-5 rounded m-3" onclick="getPlayerChoice(this)">Paper</button>
+            <button class=" bg-sky-500 text-lg py-2 px-5 rounded m-3" onclick="getPlayerChoice(this)">Scissors</button>
+        </div>
+        <div class="">
+            <p class="text-slate-100"> Result  </p>
+            <p class="text-blue-400" id="playerChoice"></p>
+            <p class="text-blue-400" id="computerChoice"></p>
+            <p class="text-slate-100" id="resultText"></p>
+        </div>
+        <!-- <div class="d-flex ">
+            <button class=" bg-sky-500 text-base py-1 px-4 rounded m-3" id="playButton">Play Round</button>
+        </div> -->
+    </div>
+    
+
+    <div class="top-0 right-0 fixed bg-sky-600/20 backdrop-blur-sm w-fit m-2 p-4 rounded-xl">
+        <h1 class="text-slate-100 text-bold py-2 ">This is Score Board !</h1>
+        <p class="text-slate-300">Total Rounds: <span class="font-bold text-blue-500">5</span></p>
+        <p class="text-slate-300">Current Round: <span id="currentRound" class="font-bold text-blue-500">5</span></p>
+        <p class="text-slate-300">Tie Round: <span id="tieRound" class="font-bold text-blue-500"></span></p>
+        <p class="text-slate-300">Player's Win: <span id="playerWinCount" class="font-bold text-blue-500"></span></p> 
+        <p class="text-slate-300">Computer's Win: <span id="computerWinCount" class="font-bold text-blue-500"></span></p> 
+
+    </div>
+    
+
+
+    
+
+
+    <script src="./script.js"></script>
+    
+    
+</body>
+</html>
