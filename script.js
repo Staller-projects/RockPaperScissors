@@ -20,9 +20,9 @@ const getComputerChoice = () => {
     return choiceArray[Math.floor(Math.random() * choiceArray.length)];
 }
 
-const getPlayerChoice = (element) => {
-    console.log(element.innerText);
-    playerChoice = element.innerText;
+const getPlayerChoice = (choice) => {
+    console.log(choice);
+    playerChoice = choice;
 
     triggerRound();
 }
