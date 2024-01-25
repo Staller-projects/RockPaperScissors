@@ -71,12 +71,12 @@ const playRound = (playerChoice, computerChoice) => {
 }
 
 
-function displayResult(playerChoice, computerChoice) {
+const displayResult = (playerChoice, computerChoice) => {
     document.getElementById('playerChoice').innerText = `- Player's choose: ${playerChoice}`;
     document.getElementById('computerChoice').innerText = `- Computer's choose: ${computerChoice}`;
     document.getElementById('resultText').innerText = resultText;
 
-    displayScore()
+    displayScore();
 }
 
 
@@ -114,6 +114,10 @@ function resetGame() {
     tieRoundCount = 0;
     playerWinCount = 0; 
     computerWinCount = 0;
+
+    document.getElementById('playerChoice').innerText = ``;
+    document.getElementById('computerChoice').innerText = ``;
+    document.getElementById('resultText').innerText = ``;
 
     updateScore(currentRound, playerWinCount, computerWinCount, tieRoundCount);
     
