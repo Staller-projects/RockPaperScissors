@@ -66,30 +66,28 @@ const playRound = (playerChoice, computerChoice) => {
     }
 
     // Score board logic
-    displayScore(playerChoice, computerChoice);
+    displayResult(playerChoice, computerChoice);
 
 }
 
 
-const displayScore = (playerChoice, computerChoice) => {
- 
-    if(totalCount == 0) {
-        alert("Do you want to play one more round ?");
-        totalCount = 5;
-        currentRound = 0;
-        tieRoundCount = 0;
-        playerWinCount = 0; 
-        computerWinCount = 0;
-        document.getElementById('currentRound').innerText = currentRound;
-        document.getElementById('playerWinCount').innerText = playerWinCount;
-        document.getElementById('computerWinCount').innerText = computerWinCount;
-        document.getElementById('tieRound').innerText = tieRoundCount;
-        return 0;
-    }
-
+function displayResult(playerChoice, computerChoice) {
     document.getElementById('playerChoice').innerText = `- Player's choose: ${playerChoice}`;
     document.getElementById('computerChoice').innerText = `- Computer's choose: ${computerChoice}`;
     document.getElementById('resultText').innerText = resultText;
+
+    displayScore()
+}
+
+
+const displayScore = () => {
+ 
+    if(totalCount == 0) {
+        alert("Do you want to play one more round ?");
+        resetGame();
+        return 0;
+    }
+
 
     if(resultText == "Computer win!") {
         totalCount--;
@@ -104,20 +102,32 @@ const displayScore = (playerChoice, computerChoice) => {
     } else if(resultText == "TIE!"){
         tieRoundCount++;
         currentRound++;
-        
     } 
 
+    updateScore(currentRound, playerWinCount, computerWinCount, tieRoundCount);
+
+}
+
+function resetGame() {
+    totalCount = 5;
+    currentRound = 0;
+    tieRoundCount = 0;
+    playerWinCount = 0; 
+    computerWinCount = 0;
+
+    updateScore(currentRound, playerWinCount, computerWinCount, tieRoundCount);
+    
+}
+
+function updateScore(currentRound, playerWinCount, computerWinCount, tieRoundCount) {
     document.getElementById('currentRound').innerText = currentRound;
     document.getElementById('playerWinCount').innerText = playerWinCount;
     document.getElementById('computerWinCount').innerText = computerWinCount;
     document.getElementById('tieRound').innerText = tieRoundCount;
-
-      
-
 }
 
 function triggerRound() {
-    console.log(getComputerChoice());
+    // console.log(getComputerChoice());
     playRound(playerChoice, getComputerChoice());
 }
 
