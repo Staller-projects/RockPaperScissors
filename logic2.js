@@ -12,18 +12,18 @@ let computerWinCount = 0;
 let choice = {
     "Rock": {
         "Rock": 'Tie',
-        "Paper": 'Player',
-        "Scissors": 'Computer'
+        "Paper": 'Computer Win',
+        "Scissors": 'Player Win'
     },
     "Paper": {
-        "Rock": 'Tie',
-        "Paper": 'Player',
-        "Scissors": 'Computer'
+        "Rock": 'Player Win',
+        "Paper": 'Tie',
+        "Scissors": 'Compute Win' 
     },
     "Scissors": {
-        "Rock": 'Tie',
-        "Paper": 'Player',
-        "Scissors": 'Computer'
+        "Rock": 'Computer Win',
+        "Paper": 'Player Win',
+        "Scissors": 'Tie'
     }
 };
 
@@ -38,31 +38,22 @@ const getComputerChoice = () => {
     return choiceArray[Math.floor(Math.random() * choiceArray.length)];
 }
 
-const getPlayerChoice = (element) => {
-    console.log(element.innerText);
-    playerChoice = element.innerText;
+const getPlayerChoice = (playerChoose) => { 
+    playerChoice = playerChoose;
 
     triggerRound();
 }
 
 
-const playRound = (playerChoice, computerChoice) => {
-    // console.log(playerChoice, computerChoice);
+const playRound = (playerChoice, computerChoice) => { 
 
     if(!playerChoice) {
         console.log(alert("Player should choose first it's choice!"));
         return 1;
     }
-    
-    console.log(choice[playerChoice]);
-    console.log(choice[playerChoice][computerChoice]);
+   
+    resultText = choice[playerChoice][computerChoice];
 
-    if(choice[playerChoice] == choice[playerChoice][computerChoice]) {
-        console.log('if part');
-    } else {
-        console.log('else part');
-    }
-    
 
     // Score board logic
     displayResult(playerChoice, computerChoice);
@@ -88,17 +79,17 @@ const displayScore = () => {
     }
 
 
-    if(resultText == "Computer win!") {
+    if(resultText == "Computer Win") {
         totalCount--;
         currentRound++;
         computerWinCount++; 
         
-    } else if(resultText == "Player win!") {
+    } else if(resultText == "Player Win") {
         totalCount--;
         currentRound++;
         playerWinCount++; 
 
-    } else if(resultText == "TIE!"){
+    } else if(resultText == "Tie"){
         tieRoundCount++;
         currentRound++;
     } 
@@ -107,7 +98,7 @@ const displayScore = () => {
 
 }
 
-function resetGame() {
+const resetGame = () => {
     totalCount = 5;
     currentRound = 0;
     tieRoundCount = 0;
@@ -122,14 +113,14 @@ function resetGame() {
     
 }
 
-function updateScore(currentRound, playerWinCount, computerWinCount, tieRoundCount) {
+const updateScore = (currentRound, playerWinCount, computerWinCount, tieRoundCount) => {
     document.getElementById('currentRound').innerText = currentRound;
     document.getElementById('playerWinCount').innerText = playerWinCount;
     document.getElementById('computerWinCount').innerText = computerWinCount;
     document.getElementById('tieRound').innerText = tieRoundCount;
 }
 
-function triggerRound() {
+const triggerRound = () => {
     // console.log(getComputerChoice());
     playRound(playerChoice, getComputerChoice());
 }
