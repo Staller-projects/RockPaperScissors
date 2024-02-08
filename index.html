@@ -6,48 +6,59 @@
     <script src="https://cdn.tailwindcss.com"></script> 
     <title>Rock Paper Scissors</title>
 </head>
-<body class="bg-slate-900">
+<body class="bg-slate-800">
 
-    <h1 class="text-3xl text-slate-100 text-center py-20">Let's play Rock-Paper-Scissors!</h1>
+    <h1 class="lg:text-3xl sm:text-xl text-xl text-slate-100 text-center py-20">Let's play Rock-Paper-Scissors!</h1>
 
-
-    <div class="choiceButtonGroup w-fit bg-sky-600/20 backdrop-blur-sm container d-flex justify-center mx-auto p-5  rounded-xl shadow-xl shadow-sky-600/10">
-        <p class="text-slate-100"> What do you want..!</p>
-        <div class="my-5 border-b-[1px] border-slate-200">
-            <button class="text-lg rounded-full m-3 opacity-70" id="RockButton" onclick="getPlayerChoice('Rock')">
-                <img class="h-24 rounded-full" src="./Rock.png" alt="Rock img">
-                <span class="text-xs font-bold text-white">Rock</span>
-            </button>
-            <button class=" text-lg rounded-full m-3 opacity-70" id="PaperButton" onclick="getPlayerChoice('Paper')">
-                <img class="h-24 rounded-full" src="./Paper.png" alt="Paper img">
-                <span class="text-xs font-bold text-white">Paper</span>
-            </button>
-            <button class=" text-lg rounded-full m-3 opacity-70" id="ScissorsButton" onclick="getPlayerChoice('Scissors')">
-                <img class="h-24 rounded-full" src="./Scissors.png" alt="Scissors img">
-                <span class="text-xs font-bold text-white">Scissors</span>
-            </button>
+    <div class="">
+        <div class="lg:top-0 lg:right-0 lg:fixed bg-sky-600/20 backdrop-blur-sm  w-fit container mx-auto m-2 p-4 rounded-xl">
+            <h1 class="text-xl lg:text-2xl md:text-xl text-center text-slate-100 font-bold py-2 ">Score Board !</h1>
+            <div class="mx-auto text-nowrap w-full mx-auto">
+                <div class="flex justify-between w-full py-3"> 
+                    <p class="text-sky-400 font-bold text-base flex flex-col justify-center">Player Win's: <span id="playerWinCount" class="font-bold text-white text-center text-3xl"></span></p> 
+                    <p class="text-sky-400 font-bold text-base flex flex-col justify-center">Computer's Win's: <span id="computerWinCount" class="font-bold text-white text-center text-3xl"></span></p>          
+                </div>
+                <div class="flex justify-between space-x-5">
+                    <p class="text-sky-400 font-bold text-base">Total Rounds: <span class="font-bold text-white">5</span></p>
+                    <p class="text-sky-400 font-bold text-base">Current Round: <span id="currentRound" class="font-bold text-white">5</span></p>
+                    <p class="text-sky-400 font-bold text-base">Tie Rounds: <span id="tieRound" class="font-bold text-white"></span></p>
+                </div>
+            </div>
         </div>
-        <div class="">
-            <p class="text-slate-100"> Result  </p>
-            <p class="text-blue-400" id="playerChoice"></p>
-            <p class="text-blue-400" id="computerChoice"></p>
-            <p class="text-slate-100 text-2xl font-bold text-center" id="resultText"></p>
+    
+        <div class="choiceButtonGroup w-fit bg-sky-800/50 backdrop-blur-sm container d-flex justify-center mx-auto p-5  rounded-xl shadow-xl shadow-sky-600/15 ">
+            <div class="">
+                <div class="">
+                    <!-- <p class="text-slate-100 text-base"> What will you choose..!</p> -->
+                </div> 
+            </div>
+            <div class="container my-5 border-b-[1px] border-slate-200 justify-center ">
+                <button class="text-lg rounded-full m-3" id="RockButton" onclick="getPlayerChoice('Rock')">
+                    <img class=" h-24 rounded-full" src="./Rock.png" alt="Rock img">
+                    <span class="text-base font-bold text-white">Rock</span>
+                </button>
+                <button class=" text-lg rounded-full m-3" id="PaperButton" onclick="getPlayerChoice('Paper')">
+                    <img class="h-24 rounded-full" src="./Paper.png" alt="Paper img">
+                    <span class="text-base font-bold text-white">Paper</span>
+                </button>
+                <button class=" text-lg rounded-full m-3" id="ScissorsButton" onclick="getPlayerChoice('Scissors')">
+                    <img class="h-24 rounded-full" src="./Scissors.png" alt="Scissors img">
+                    <span class="text-base font-bold text-white">Scissors</span>
+                </button>
+            </div>
+            <div class="">
+                <p class="text-slate-100"> Result  </p>
+                <p class="text-blue-400" id="playerChoice"></p>
+                <p class="text-blue-400" id="computerChoice"></p>
+                <p class="text-slate-100 text-2xl font-bold text-center" id="resultText"></p>
+            </div> 
         </div>
-        <!-- <div class="d-flex ">
-            <button class=" bg-sky-500 text-base py-1 px-4 rounded m-3" id="playButton">Play Round</button>
-        </div> -->
+
     </div>
+
     
 
-    <div class="top-0 left-0 fixed bg-sky-600/20 backdrop-blur-sm w-fit m-2 p-4 pr-10 rounded-xl">
-        <h1 class="text-xl text-slate-100 font-bold py-2 ">Score Board !</h1>
-        <p class="text-slate-300">Total Rounds: <span class="font-bold text-blue-500">5</span></p>
-        <p class="text-slate-300">Current Round: <span id="currentRound" class="font-bold text-blue-500">5</span></p>
-        <p class="text-slate-300">Tie Round: <span id="tieRound" class="font-bold text-blue-500"></span></p>
-        <p class="text-slate-300">Player's Win: <span id="playerWinCount" class="font-bold text-blue-500"></span></p> 
-        <p class="text-slate-300">Computer's Win: <span id="computerWinCount" class="font-bold text-blue-500"></span></p> 
-
-    </div>
+    
     
 
 

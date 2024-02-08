@@ -16,14 +16,15 @@ let tieRoundCount = 0;
 let playerWinCount = 0; 
 let computerWinCount = 0; 
 
-document.getElementById('currentRound').innerText = currentRound;
+let playerChoiceElement = document.getElementById('playerChoice');
+let computerChoiceElement = document.getElementById('computerChoice');
+let resultTextElement =  document.getElementById('resultText');
+
+let currentRoundElement = document.getElementById('currentRound').innerText = currentRound;
 document.getElementById('playerWinCount').innerText = playerWinCount;
 document.getElementById('computerWinCount').innerText = computerWinCount;
 document.getElementById('tieRound').innerText = tieRoundCount;
 
-let playerChoiceElement = document.getElementById('playerChoice');
-let computerChoiceElement = document.getElementById('computerChoice');
-let resultTextElement =  document.getElementById('resultText');
 
 
 const getComputerChoice = () => {
@@ -35,10 +36,10 @@ const getPlayerChoice = (choice) => {
  
 
     setTimeout(() => {
-        document.getElementById(`${choice}Button`).classList.toggle("opacity-70");
-    }, 1000)
+        document.getElementById(`${choice}Button`).classList.toggle("opacity-50");
+    }, 700)
 
-    document.getElementById(`${choice}Button`).classList.toggle("opacity-70");
+    document.getElementById(`${choice}Button`).classList.toggle("opacity-50");
 
     triggerRound();
 }
@@ -128,7 +129,7 @@ function resetGame() {
 }
 
 function updateScore(currentRound, playerWinCount, computerWinCount, tieRoundCount) {
-    document.getElementById('currentRound').innerText = currentRound;
+    currentRoundElement.innerText = currentRound;
     document.getElementById('playerWinCount').innerText = playerWinCount;
     document.getElementById('computerWinCount').innerText = computerWinCount;
     document.getElementById('tieRound').innerText = tieRoundCount;
@@ -136,8 +137,6 @@ function updateScore(currentRound, playerWinCount, computerWinCount, tieRoundCou
 
 function triggerRound() { 
     playRound(playerChoice, getComputerChoice());
-
-    
 }
 
  
